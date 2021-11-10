@@ -12,32 +12,32 @@
     <div class="pool-container">
 
         <div class="result-links">
-            <a href="" id="home">Home</a>
-            <a href="" id="logout">Logout</a>
+            <a href="/" id="home">Home</a>
+            <a href="/logout" id="logout">Logout</a>
         </div>
 
         <!-- Formulario Actualizar Piscina -->
-        <form action="/host-pool">
+        <form action="/updatePool" method="post">
 
             <div class="info-pool">
-                <h3>*Direccion*</h3>
-                <textarea name="" id="txt-host" cols="30" rows="10" class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore vel nesciunt voluptas nam optio nisi distinctio molestias assumenda earum magni reprehenderit illo unde, nostrum, quas sit sequi, veniam voluptate? Cumque!</textarea>
+                <h3><%=resPool.address%></h3>
+                <textarea name="description" id="txt-host" cols="30" rows="10" class="form-control"><%=resPool.description%></textarea>
             </div>
 
             <div class="info-host">
-                <h3>Email: *email host*</h3>
-                <h3>Name: *nombre host*</h3>
+                <h3>Email: <%=resUser.username%></h3>
+                <h3>Name: <%=resUser.firstName%> <%=resUser.lastName%></h3>
 
                 <div class="info-edit">
 
                     <label class="form-label">Pool size: </label>
-                    <select name="" id="" class="form-select">
+                    <select name="poolSize" id="" class="form-select">
                         <option value="small">small</option>
                         <option value="medium">medium</option>
                         <option value="large">large</option>
                     </select>
                 <label class="form-label">Cost:</label>
-                <input type="number" class="form-control">
+                <input type="number" name="costPerNight" class="form-control" placeholder="<%=resPool.costPerNight%>">
 
                 </div>
 
@@ -46,22 +46,23 @@
 
             </div>
 
-            <button type="submit" id="btn-host" class="btn btn-primary">Save Changes</button>
+            <button type="submit" id="btn-host" class="btn btn-primary" value="<%=resPool._id%>" name="pool">Save Changes</button>
         </form>
 
         
         <!-- Reviews De La Piscina -->
         <div class="reviews-container">
             
-            <h3>Reviews *rating*</h3>
-            <a href="">Leave a Review</a>
+            <h3>Reviews</h3>
            
             <div class="reviews">
                 <div class="review">
-                    <h4>Username</h4>
-                    <h4>Rating: *rating given*</h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi vitae exercitationem inventore, sit, dicta ratione, quos pariatur vero laborum atque reiciendis! Unde, culpa eveniet quasi reprehenderit iure earum magni blanditiis!</p>
-                    <hr>
+                    <%  resPool.reviews.forEach(function(review) { %>
+                        <h4><%=review.username%></h4>
+                        <h5>Rating: <%=review.rating%>/5</h5>
+                        <p><%=review.description%></p>
+                        <hr>
+                  <%  }); %>
                 </div>
             </div>
 

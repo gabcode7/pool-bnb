@@ -12,14 +12,14 @@
     <div class="results-container">
 
         <div class="result-links">
-             <a href="" id="home">Home</a>
-        <a href="" id="logout">Logout</a>
+        <a href="/" id="home">Home</a>
+        <a href="/logout" id="logout">Logout</a>
         </div>
 
         <h1>Find your pool!</h1>
         <div class="results-search-form">
-            <form action="/home">
-                <input type="text" class="form-control" placeholder="new search">
+            <form action="/search" method="post">
+                <input type="text" class="form-control" name="search" placeholder="new search">
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
@@ -35,7 +35,16 @@
                 </tr>
             </thead>
             <tbody>
-                
+            <%  searchPools.forEach(function(pool){ %>
+                    <tr>
+                        <td><%=pool.address%></td>
+                        <td><%=pool.poolSize%></td>
+                        <td><%=pool.costPerNight%></td>
+                        <td><a href="/pools/<%=pool._id%>">See more</a></td>
+                    </tr>
+            <%  });  %>
+
+
             </tbody>
             </table>
         </div>

@@ -12,33 +12,36 @@
     <div class="pool-container">
 
         <div class="result-links">
-            <a href="" id="home">Home</a>
-            <a href="" id="logout">Logout</a>
+            <a href="/" id="home">Home</a>
+            <a href="/logout" id="logout">Logout</a>
         </div>
 
         <div class="info-pool">
-            <h3>*Direccion*</h3>
-            <p>*Descripcion Pool*</p>
+            <h3><%=resPool.address%></h3>
+            <p><%=resPool.description%></p>
         </div>
 
         <div class="info-host">
-            <h3>Email: *email host*</h3>
-            <h3>Name: *nombre host*</h3>
-            <h3>Pool size: *tamano pool*</h3>
-            <h3>Cost: *costo pool*</h3>
+            <h3>Email: <%=resUser.username%></h3>
+            <h3>Name: <%=resUser.firstName%> <%=resUser.lastName%></h3>
+            <h3>Pool size: <%=resPool.poolSize%></h3>
+            <h3>Cost: <%=resPool.costPerNight%></h3>
         </div>
 
         <div class="reviews-container">
             
             <h3>Reviews *rating*</h3>
-            <a href="">Leave a Review</a>
+            <a href="/pools/review/<%=resPool._id%>">Leave a Review</a>
            
             <div class="reviews">
                 <div class="review">
-                    <h4>Username</h4>
-                    <h4>Rating: *rating given*</h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi vitae exercitationem inventore, sit, dicta ratione, quos pariatur vero laborum atque reiciendis! Unde, culpa eveniet quasi reprehenderit iure earum magni blanditiis!</p>
-                    <hr>
+                  <%  resPool.reviews.forEach(function(review) { %>
+                        <h4><%=review.username%></h4>
+                        <h5>Rating: <%=review.rating%>/5</h5>
+                        <p><%=review.description%></p>
+                        <hr>
+                  <%  }); %>
+
                 </div>
             </div>
 

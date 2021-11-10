@@ -12,23 +12,23 @@
     <div class="review-container">
 
         <div class="result-links">
-            <a href="" id="home">Home</a>
-            <a href="" id="logout">Logout</a>
+            <a href="/" id="home">Home</a>
+            <a href="/logout" id="logout">Logout</a>
         </div>
 
         <div class="add-review">
-            <h3>Review of *direccion piscina*</h3>
-            <form action="/review">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem aliquid harum illo nobis eveniet! Expedita necessitatibus optio dolore dignissimos sequi placeat possimus doloremque ipsum voluptates, consectetur, quae libero iusto in!</p>
+            <h3>Review of <%=reviewPool.address%></h3>
+            <form action="/review" method="post">
+                <textarea class="form-control reviewta" id="floatingTextarea" cols="30" rows="10" name="description"></textarea>
                 <label>Rating</label>
-                <select name="" id="" class="form-select">
+                <select name="rating" id="" class="form-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button type="submit" class="btn btn-primary">Submit Review</button>
+                <button type="submit" class="btn btn-primary" value="<%=reviewPool._id%>" name="idPiscina">Submit Review</button>
             </form>
             
         </div>

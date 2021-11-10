@@ -11,16 +11,15 @@
 
     <div class="home-container">
 
-        <a href="" id="signing">Signing/Signup</a>
+        <a href="/guest/signin" id="signing">Signing/Signup</a>
         <h1>Find places to swim and sleep on water bnb!</h1>
         <div class="search-form">
-            <form action="/home">
-                <input type="text" class="form-control" placeholder="location">
+            <form action="/search" method="post">
+                <input type="text" class="form-control" placeholder="location" name="search">
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
-
-
+    
     </div>
    
     

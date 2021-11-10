@@ -9,7 +9,14 @@
 </head>
 <body>
 
+
     <div class="dashboard-container">
+        
+        <div class="result-links">
+        <a href="/" id="home">Home</a>
+        <a href="/logout" id="logout">Logout</a>
+        </div>
+
         <h1>Current Listings</h1>
         <table class="table table-bordered table-striped">
             <thead>
@@ -22,20 +29,30 @@
             </thead>
             <tbody>
                 
+            <%    foundPools.forEach(function(pool) { %>
+                    <tr>
+                        <td><%=pool.address%></td>
+                        <td><%=pool.poolSize%></td>
+                        <td><%=pool.costPerNight%></td>
+                        <td><a href="/host/pool/<%=pool._id%>">Edit</a></td>
+                    </tr>
+              <%  }); %>
+
+
             </tbody>
         </table>
 
         <div class="new-listing">
             <h2>New Listing</h2>
-            <form action="/dashboard">
+            <form action="/dashboard" method="post">
                 <label class="form-label">Address</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="address">
                 <label class="form-label">Description</label>
-                <textarea name="" class="form-control" id="floatingTextarea" cols="30" rows="10"></textarea>
+                <textarea class="form-control" id="floatingTextarea" cols="30" rows="10" name="description"></textarea>
                 <label class="form-label">Cost per night</label>
-                <input type="number" class="form-control small-input" placeholder="100" min="1">
+                <input type="number" name="costPerNight" class="form-control small-input" placeholder="100" min="1">
                 <label>Pool Size</label>
-                <select name="" class="form-select small-input">
+                <select name="poolSize" class="form-select small-input">
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>

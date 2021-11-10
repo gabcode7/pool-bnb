@@ -10,20 +10,23 @@
 <body>
 
     <div class="signin-container">
+        <div class="result-links">
+        <a href="/" id="home">Home</a>
+        </div>
 
         <div class="register">
         <h1>Register</h1>
-        <form action="/register">
+        <form action="/register" method="post">
             <label class="form-label">First Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="fName">
             <label class="form-label">Last Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="lName">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" name="username">
             <label class="form-label">Password</label>
             <input type="password" class="form-control">
             <label class="form-label">Confirm Password</label>
-            <input type="text" class="form-control">
+            <input type="password" class="form-control" name="password">
             <select name="userType" class="form-select">
                 <option value="host">Host</option>
                 <option value="guest">Guest</option>
@@ -34,11 +37,11 @@
 
     <div class="login">
         <h1>Login</h1>
-        <form action="/login">
+        <form action="/login" method="post">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control"> 
+            <input type="email" class="form-control" name="username"> 
             <label class="form-label">Password</label>
-            <input type="text" class="form-control">
+            <input type="password" class="form-control" name="password">
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
